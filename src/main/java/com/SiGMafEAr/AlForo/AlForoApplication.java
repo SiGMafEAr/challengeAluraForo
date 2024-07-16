@@ -1,0 +1,13 @@
+package com.SiGMafEAr.AlForo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class AlForoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(AlForoApplication.class, args);
+	}
+
+}
