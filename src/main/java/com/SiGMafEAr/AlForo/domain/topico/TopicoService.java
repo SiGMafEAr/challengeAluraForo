@@ -1,7 +1,7 @@
 package com.SiGMafEAr.AlForo.domain.topico;
 
 import com.SiGMafEAr.AlForo.domain.curso.Curso;
-import com.SiGMafEAr.AlForo.curso.CursoRepository;
+import com.SiGMafEAr.AlForo.domain.curso.CursoRepository;
 import com.SiGMafEAr.AlForo.domain.topico.validaciones.ValidadorDeTopicos;
 import com.SiGMafEAr.AlForo.domain.usuario.Usuario;
 import com.SiGMafEAr.AlForo.domain.usuario.UsuarioRepository;
@@ -30,7 +30,7 @@ public class TopicoService {
 
     public Topico registrarTopico(RequestTopicoDTO datos){
 
-        if(!usuarioRepository.findById(datos.usuarioId()).isPresent()){
+        if(!usuarioRepository.findById(datos.usuario()).isPresent()){
             throw new ValidacionDeIntegridad("este id para el usuario no fue encontrado");
         }
         if(!cursoRepository.existsByNombre(datos.curso())){
@@ -42,7 +42,7 @@ public class TopicoService {
         }
 
         Curso curso = cursoRepository.findByNombre(datos.curso());
-        Usuario usuario = usuarioRepository.getReferenceById(datos.usuarioId());
+        Usuario usuario = usuarioRepository.getReferenceById(datos.usuario());
         Topico topico = new Topico(
                 datos.titulo(),
                 datos.mensaje(),
@@ -71,24 +71,4 @@ public class TopicoService {
         );
         return topico;
     }
-
-
-    //    public Topico(RequestTopicoDTO datos) {
-//        this.titulo = datos.titulo();
-//        this.mensaje = datos.mensaje();
-//        this.fechaCreacion = LocalDateTime.now();
-//        this.status = datos.status();
-//        this.usuario = datos.autor();
-//        this.curso = datos.curso();
-//        this.respuesta = datos.respuesta();
-//        this.activo = true;
-//    }
-
-    //    public void actualizarTopico(ActualizarTopicoDTO datos) {
-//        this.titulo = datos.titulo();
-//        this.mensaje = datos.mensaje();
-//        this.status = datos.status();
-//        this.usuario = datos.autor();
-//        this.curso = datos.curso();
-//    }
-}
+    }

@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Table(name = "topicos")
+@Table(name = "topico")
 @Entity(name = "topico")
 @Getter
 @NoArgsConstructor
@@ -28,16 +28,14 @@ public class Topico {
     private LocalDateTime fechaCreacion;
     private String status;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "usuario_id")
+    @JoinColumn(name = "usuario")
     private Usuario usuario;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "curso_id")
+    @JoinColumn(name = "curso")
     private Curso curso;
     @OneToMany(mappedBy = "topico", cascade = CascadeType.ALL)
     private List<Respuesta> respuestas;
     private Boolean activo;
-//    private List<Respuesta> respuestas;
-
 
     public Topico(String titulo, String mensaje, Usuario usuario, Curso curso) {
         this.titulo = titulo;

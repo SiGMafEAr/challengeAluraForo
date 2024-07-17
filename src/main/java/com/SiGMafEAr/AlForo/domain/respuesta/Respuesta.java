@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Table(name = "respuestas")
+@Table(name = "respuesta")
 @Entity(name = "Respuesta")
 @Getter
 @NoArgsConstructor
@@ -28,6 +28,6 @@ public class Respuesta {
     @ManyToOne
     private Topico topico;
     private LocalDateTime fechaCreacion;
-    private Usuario autor;
+    private Usuario usuario;
     private Boolean solucion;
 }

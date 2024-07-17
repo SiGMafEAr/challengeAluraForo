@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-@Table(name = "usuarios")
+@Table(name = "usuario")
 @Entity(name = "Usuario")
 @Getter
 @NoArgsConstructor
@@ -26,7 +26,6 @@ public class Usuario implements UserDetails {
     private String nombre;
     private String correoElectronico;
     private String contrasena;
-    private String perfiles;
     private Boolean activo;
 
 

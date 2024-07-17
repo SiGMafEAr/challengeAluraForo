@@ -8,7 +8,7 @@ public record RequestTopicoDTO(
         @NotNull
         String mensaje,
         @NotNull
-        Long usuarioId,
+        Long usuario,
         @NotNull
         String curso
 ) {
